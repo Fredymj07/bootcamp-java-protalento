@@ -11,9 +11,9 @@ import java.util.Scanner;
      - número de examen
      - nota que obtubo el alumno (númerico >=0 <=10)
      Al finalizar la carga de datos, se procederá a listar la siguiente información:
-     1- alumno/s con la calificación mas alta
-     2- alumno/s con la calificación mas baja
-     3- alumnos que promocionan, aquellos que obtubieron un promerdio >= 7
+     1- alumno/s con la calificación más alta
+     2- alumno/s con la calificación más baja
+     3- alumnos que promocionan, aquellos que obtubieron un promedio >= 7
      4- alumnos que deben recursar la materia, aquellos que obtuvieron un promedio < 7
 */
 
@@ -27,6 +27,9 @@ public class StudentGradeControl {
     private int addition = 0;
     private int average = 0;
     private int [] averageList;
+    private int higherAverage = 0;
+    private int lowestAverage = 0;
+    private String student = "";
     Scanner keyboard = new Scanner(System.in);
 
     public void inputStudent(){
@@ -71,20 +74,44 @@ public class StudentGradeControl {
         }
     }
 
-//    public void higherNote(){
-//        int higherAverage = 0;
-//        int appliedStudent = 0;
-//        higherAverage = note[0];
-//        for (int i = 0; i < name.length; i++){
-//            if (note[i] > higherAverage){
-//                higherAverage = note[i];
-//                appliedStudent = i;
-//            }
-//        }
-//    }
+    public void higherNote(){
+        for (int i = 0; i < averageList.length; i++){
+            //Validación del promedio mayor entre todos los estudiantes
+            if (averageList[i] > higherAverage){
+                higherAverage = averageList[i];
+                student = name[i] + " " + lastName[i];
+            }
+        }
+        //Validación de la aprobación del curso de acuerdo con la regla promedio >= 7
+        if (higherAverage >= 7){
+            System.out.println("The higher average is " + higherAverage);
+            System.out.println("The student than approved the course is " + student);
+        } else {
+            System.out.println("The student " + student + " despite having the highest average, didn't pass the course. The average obtained is: " + higherAverage);
+        }
+    }
+
+    public void lowestNote(){
+        for (int i = 0; i < averageList.length; i++){
+            //Validación del promedio mayor entre todos los estudiantes
+            if (averageList[i] < higherAverage){
+                lowestAverage = averageList[i];
+                student = name[i] + " " + lastName[i];
+            }
+        }
+        //Validación de la aprobación del curso de acuerdo con la regla promedio >= 7
+        if (lowestAverage >= 7){
+            System.out.println("The lowest average obtained is " + lowestAverage);
+            System.out.println("The student than approved the course is " + student);
+        } else {
+            System.out.println("The student " + student + " obtained an average very lowest, therefore he/she must repeat the course. The average obtained is: " + lowestAverage);
+        }
+    }
 
     public static void main(String[] args) {
         StudentGradeControl control = new StudentGradeControl();
         control.inputStudent();
+        control.higherNote();
+        control.lowestNote();
     }
 }
