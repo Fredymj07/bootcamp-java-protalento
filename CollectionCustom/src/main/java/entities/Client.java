@@ -58,4 +58,9 @@ public class Client {
     public void setNumeroDocumento(String numeroDocumento) {
         this.numeroDocumento = numeroDocumento;
     }
+
+    @Override
+    public String toString() {
+        return nombre + " " + apellido + " " + edad + " " + tipoDocumento + " " + numeroDocumento;
+    }
 }
