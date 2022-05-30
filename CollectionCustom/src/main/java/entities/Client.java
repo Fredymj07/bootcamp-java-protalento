@@ -2,65 +2,66 @@ package entities;
 
 public class Client {
 
-    public String nombre;
-    public String apellido;
-    public byte edad;
-    public String tipoDocumento;
-    public String numeroDocumento;
+    private String name;
+    private String lastName;
+    private String age;
+    private String typeDocument;
+    private String numberDocument;
 
     public Client() {
     }
 
-    public Client(String nombre, String apellido, byte edad, String tipoDocumento, String numeroDocumento) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.edad = edad;
-        this.tipoDocumento = tipoDocumento;
-        this.numeroDocumento = numeroDocumento;
+    public Client(String name, String lastName, String age, String typeDocument, String numberDocument) {
+        this();
+        this.name = name;
+        this.lastName = lastName;
+        this.age = age;
+        this.typeDocument = typeDocument;
+        this.numberDocument = numberDocument;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public byte getEdad() {
-        return edad;
+    public String getAge() {
+        return age;
     }
 
-    public void setEdad(byte edad) {
-        this.edad = edad;
+    public void setAge(String age) {
+        this.age = age;
     }
 
-    public String getTipoDocumento() {
-        return tipoDocumento;
+    public String getTypeDocument() {
+        return typeDocument;
     }
 
-    public void setTipoDocumento(String tipoDocumento) {
-        this.tipoDocumento = tipoDocumento;
+    public void setTypeDocument(String typeDocument) {
+        this.typeDocument = typeDocument;
     }
 
-    public String getNumeroDocumento() {
-        return numeroDocumento;
+    public String getNumberDocument() {
+        return numberDocument;
     }
 
-    public void setNumeroDocumento(String numeroDocumento) {
-        this.numeroDocumento = numeroDocumento;
+    public void setNumberDocument(String numberDocument) {
+        this.numberDocument = numberDocument;
     }
 
     @Override
     public String toString() {
-        return nombre + " " + apellido + " " + edad + " " + tipoDocumento + " " + numeroDocumento;
+        return "Client " + name + " " + lastName + " " + age + " " + typeDocument + " " + numberDocument;
     }
 }
