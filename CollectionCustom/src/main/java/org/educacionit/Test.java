@@ -39,7 +39,8 @@ public class Test {
                 System.out.println("The array has a size of " + customArray.sizeArray() + " positions");
                 break;
             case 6:
-                System.out.println(customArray.getClients());
+                System.out.println("List of clients");
+                customArray.getClients();
                 break;
             default:
                 if(option > 6) {
@@ -55,7 +56,7 @@ public class Test {
      * @author Fredy Montaña
      */
     public void showMenu() {
-        String menu = "1. Add client";
+        String menu = "\n1. Add client";
         menu += "\n2. Add client in first position";
         menu += "\n3. Add client in last position";
         menu += "\n4. Validate if the array is empty";
