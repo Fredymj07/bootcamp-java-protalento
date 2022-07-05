@@ -1,13 +1,29 @@
 package entities;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class CollectionCustom {
 
+
     Client client = new Client();
     Client[] clients = new Client[1];
     Scanner keyboard = new Scanner(System.in);
+
+    /**
+     * Este método permite capturar los datos que desea ingresar el usuario
+     *
+     * @author Fredy Montaña
+     */
+    public void captureClientData() {
+        System.out.println("Please input the data of client separated by &: ");
+        String input = keyboard.nextLine();
+        String[] data = input.split("&");
+        client.setName(data[0]);
+        client.setLastName(data[1]);
+        client.setAge(data[2]);
+        client.setTypeDocument(data[3]);
+        client.setNumberDocument(data[4]);
+    }
 
     /**
      * Este método retorna el tamaño del arreglo de objetos tipo client
@@ -33,15 +49,18 @@ public class CollectionCustom {
         }
     }
 
-    public void captureClientData() {
-        System.out.println("Please input the data of client separated by &: ");
-        String input = keyboard.nextLine();
-        String[] data = input.split("&");
-        client.setName(data[0]);
-        client.setLastName(data[1]);
-        client.setAge(data[2]);
-        client.setTypeDocument(data[3]);
-        client.setNumberDocument(data[4]);
+    /**
+     * Este método permite agregar una posición al arreglo original
+     * @param clients
+     * @return clientsAuxiliar
+     */
+    public Client[] increaseSize(Client[] clients) {
+        Client[] clientsAuxiliar = new Client[clients.length + 1];
+        clientsAuxiliar[clientsAuxiliar.length - 1] = client;
+        for (int i = 0; i < clients.length; i++) {
+            clientsAuxiliar[i] = clients[i];
+        }
+        return clientsAuxiliar;
     }
 
     /**
@@ -55,49 +74,8 @@ public class CollectionCustom {
         if (clients[0] == null) {
             clients[0] = client;
         } else {
-            Client[] clientsAuxiliar = new Client[clients.length + 1];
-            clientsAuxiliar[clientsAuxiliar.length - 1] = client;
-            for (int i = 0; i < clients.length; i++) {
-                clientsAuxiliar[i] = clients[i];
-            }
-            clients = clientsAuxiliar;
+            clients = increaseSize(clients);
         }
-    }
-
-    /**
-     * Este método permite agregar un objeto client al inicio del arreglo
-     *
-     * @author Fredy Montaña
-     */
-    public void addFirst() {
-        if (clients[0] == null) {
-            clients[0] = client;
-        } else {
-            Client[] arrayAuxiliary = new Client[clients.length + 1];
-            arrayAuxiliary[0] = client;
-            for (int i = 0; i < clients.length; i++) {
-                arrayAuxiliary[i] = clients[i];
-            }
-        }
-    }
-
-    /**
-     * Este método permite agregar un objeto client al final del arreglo
-     *
-     * @author Fredy Montaña
-     */
-    public void addLast() {
-        clients = new Client[1];
-        System.out.println("");
-    }
-
-    /**
-     * Este método permite remover un objeto cliente del arreglo
-     *
-     * @author Fredy Montaña
-     */
-    public boolean remove() {
-        return false;
     }
 
     /**

@@ -21,30 +21,22 @@ public class Test {
                 System.out.println("Client add successfully\n");
                 break;
             case 2:
-                customArray.addFirst();
-                System.out.println("Client add successfully\n");
-                break;
-            case 3:
-                customArray.addLast();
-                System.out.println("Client add successfully\n");
-                break;
-            case 4:
                 if (customArray.isEmpty()) {
                     System.out.println("The array is empty\n");
                 } else {
                     System.out.println("The array is not empty\n");
                 }
                 break;
-            case 5:
+            case 3:
                 System.out.println("The array has a size of " + customArray.sizeArray() + " positions");
                 break;
-            case 6:
+            case 4:
                 System.out.println("List of clients");
                 customArray.getClients();
                 break;
             default:
-                if(option > 6) {
-                    System.out.println("The value input is not valid. The program will be closed");
+                if(option > 4) {
+                    System.out.println("The program will be closed");
                     customArray.exit();
                 }
                 break;
@@ -57,11 +49,10 @@ public class Test {
      */
     public void showMenu() {
         String menu = "\n1. Add client";
-        menu += "\n2. Add client in first position";
-        menu += "\n3. Add client in last position";
-        menu += "\n4. Validate if the array is empty";
-        menu += "\n5. Validate the size of array";
-        menu += "\n6. Print all the clients";
+        menu += "\n2. Validate if the array is empty";
+        menu += "\n3. Validate the size of array";
+        menu += "\n4. Print all the clients";
+        menu += "\n5. Exit";
         System.out.println(menu);
         System.out.println("Please choose an option: ");
         int option = Integer.parseInt(keyboard.next());
